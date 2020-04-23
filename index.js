@@ -23,13 +23,12 @@
   })
 }
 
-// var data;
+var data;
 
 function dataImg(date) {
-	document.getElementById('img').src = date
+	let imagen = document.getElementById('img');
+	imagen.src = date;
 }
-
-
 
 function aloha() {
 
@@ -43,10 +42,8 @@ if (userValue != false)
 	division.innerHTML = "Felicidades! Su perro favorito es " + userValue;
 
 getData(`https://dog.ceo/api/breed${link}/images/random`)
-  .then((respuesta) => {
-    data = JSON.parse(respuesta)
-  })
-  .then(() => {
+  .then((respuesta) => data = JSON.parse(respuesta))
+  .then((data) => {
     dataImg(data.message);
   })
 
